@@ -183,14 +183,9 @@ body {
     }
 
     .card {
-        width: calc(100% - 20px); 
-        max-width: 430px;
-        flex-direction: column; 
-        align-items: flex-start; 
+        width: 90%; /* Занимает 90% ширины экрана с отступами по бокам */
+        max-width: 400px; /* Устанавливаем максимальную ширину */
         padding: 15px; 
-        position: relative;
-        margin-top: 10px;
-        transform: translateX(5px); 
     }
 
     .card img {
