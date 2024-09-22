@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     background: linear-gradient(black, #00615B);
     height: 100vh;
@@ -33,15 +38,15 @@ body {
     margin-top: 25px;
     height: 83px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Размещает элементы по краям */
+    align-items: center; /* Выравнивает по вертикали */
     margin-left: 5px;
     margin-right: 5px;
 }
 
 .user-info {
     display: flex;
-    align-items: center;
+    align-items: center; /* Вертикальное выравнивание */
 }
 
 .boxgm .user-status {
@@ -60,6 +65,29 @@ body {
 
 .user-name {
     font-size: 1.2rem;
+}
+
+.lega {
+    display: flex;
+    flex-direction: column; /* Располагает элементы в колонку */
+    align-items: center; /* Центрирует элементы по горизонтали */
+    cursor: pointer;
+}
+
+.lega img {
+    height: 40px; /* Установите желаемую высоту для изображения */
+    width: 40px; /* Установите желаемую ширину для изображения */
+}
+
+.legaa {
+    font-size: 0.8rem; /* Уменьшенный размер шрифта для текста */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+.lega p{
+    margin-right: 12px;
+    font-family: "Inter";
+    font-weight: bold;
 }
 
 .box {
