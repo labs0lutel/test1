@@ -27,20 +27,27 @@
             // Проверка на доступность Telegram Web App API
             if (window.Telegram && Telegram.WebApp) {
                 const user = Telegram.WebApp.initDataUnsafe.user;
+                console.log(user); // Проверка данных пользователя
 
                 // Установка данных пользователя
                 const userPhoto = document.getElementById('userPhoto');
                 const userName = document.getElementById('userName');
 
                 if (user) {
-                    // Получаем первую фотографию пользователя
+                    // Установка аватара
                     if (user.photo) {
                         userPhoto.src = user.photo.url; // Убедитесь, что URL правильный
+                    } else {
+                        console.warn("Аватар пользователя не найден.");
                     }
 
-                    // Устанавливаем ник пользователя
+                    // Установка ника пользователя
                     userName.textContent = user.username || 'Имя пользователя';
+                } else {
+                    console.warn("Данные пользователя не найдены.");
                 }
+            } else {
+                console.error("Telegram Web App API недоступен.");
             }
         };
     </script>
