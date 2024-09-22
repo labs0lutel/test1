@@ -173,78 +173,44 @@ body {
 
 @media only screen and(max-width: 768px) {
     .box {
-        width: 100%; 
-        margin-top: 50px;
+        margin-top: 20px;
         height: auto; 
-        padding: 10px;
-        display: flex;
-        justify-content: center; 
-        align-items: center;
     }
 
     .card {
-        width: 90%; /* Занимает 90% ширины экрана с отступами по бокам */
-        max-width: 400px; /* Устанавливаем максимальную ширину */
-        padding: 15px; 
+        flex-direction: column; 
+        width: 90%; 
+        height: auto; 
+        right: 5%; 
     }
 
     .card img {
         margin-left: 0; 
-        width: 50px; 
-        height: 50px;
-    }
-
-    .card .card-about {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 0;
-    }
-
-    .card .card-about img {
-        width: 40px; 
-        height: 40px;
-        margin-top: 0;
+        margin-top: 10px; 
     }
 
     .card .card-about p {
-        margin-top: 10px;
-        margin-left: 0;
-        font-size: 1rem;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-top: 10px; 
     }
 
     .card .balanse-card p {
+        position: relative;
         margin-top: 10px;
-        font-size: 0.9rem;
+        left: 0;
+        top: 0;
     }
 
-    .datecar {
-        margin-top: 10px;
+    .date-card-maus p {
+        margin-left: 0;
+        margin-top: 10px; 
     }
 
-    .date-card-maus p,
     .card-about .date-card-dm p {
-        font-size: 0.9rem;
-        margin-top: 5px;
-    }
-
-    .lega {
-        margin-right: 0;
-        margin-top: 10px;
-    }
-
-    .lega img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .legaa {
-        font-size: 0.8rem;
-    }
-
-    .lega p {
-        font-size: 0.9rem;
-        margin-right: 5px;
+        margin-left: 0;
+        margin-top: 10px; 
     }
 }
-}
+
