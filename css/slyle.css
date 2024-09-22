@@ -113,26 +113,29 @@ body {
     background-color: #120F10;
     border-radius: 20px;
     padding: 20px;
-    width: 100%; /* Устанавливаем на 100% для адаптивности */
-    max-width: 430px; /* Максимальная ширина */
-    height: 85px; /* Высота */
+    width: 100%; 
+    max-width: 430px; 
+    height: 85px; 
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    margin-top: 10px; /* Отступ сверху */
+    margin-top: 10px; 
     position: relative;
 }
 
-.card img {
-    margin-left: 95px;
+.card .card-map img {
+    width: 100%; 
+    max-width: 432px; 
+    margin-left: 35%;
 }
 
 .card .card-about img{
     z-index: 1;
     position: absolute;
-    left: -80px;
+    left: 20px;
     top: 0;
     margin-top: 15px;
+    width: 30px
 }
 
 .card .card-about p{ 
@@ -153,88 +156,66 @@ body {
     font-weight: bold;
 }
 
-.datecar{
+.datecar {
     position: absolute;
-    margin-top: -2px;
-    top: 0;
-    left: -15px;
-    
-}
-.date-card-maus p {
-    position: absolute;
-    margin-left: 290px;
+    top: 16px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    display: flex; /* Используем flex для управления расположением */
+    justify-content: flex-start; /* Выравниваем текст влево */
+    align-items: center; /* Выравниваем по вертикали */
 }
 
+.date-card-maus p,
 .card-about .date-card-dm p {
-    position: absolute;
-    margin-top: 51px;
-    margin-left: 296px;
+    font-size: 0.9rem; /* Устанавливаем размер шрифта */
+    margin: 0 255px; /* Добавляем отступы между текстами */
 }
 
 @media only screen and(max-width: 768px) {
     .card {
-        height: 75px; 
-        padding: 15px;
-    }
-
-    .card img {
-        margin-left: 60px; 
+        height: 75px; /* Уменьшаем высоту карточки */
     }
 
     .card .card-about img {
-        left: -60px; 
+        width: 40px; /* Уменьшаем размер изображения */
     }
 
-    .card .card-about p {
-        left: 40px; 
-        margin-top: 15px; 
-    }
-
+    .card .card-about p,
     .card .balanse-card p {
-        left: 10px; 
-        margin-top: 40px; 
+        font-size: 0.9rem; /* Уменьшаем размер текста */
     }
 
-    .date-card-maus p {
-        margin-left: 200px; 
+    .datecar {
+        top: 5px; /* Уменьшаем отступ сверху */
     }
 
+    .date-card-maus p,
     .card-about .date-card-dm p {
-        margin-left: 210px; 
-        margin-top: 40px; 
+        font-size: 0.8rem; /* Уменьшаем размер шрифта */
     }
 }
 
+
 @media only screen and(max-width: 480px) {
     .card {
-        height: 65px; 
-        padding: 10px; 
-    }
-
-    .card img {
-        margin-left: 40px; 
+        height: 65px; /* Дальнейшее уменьшение высоты карточки */
     }
 
     .card .card-about img {
-        left: -40px; 
+        width: 30px; /* Дальнейшее уменьшение размера изображения */
     }
 
-    .card .card-about p {
-        left: 30px; 
-        margin-top: 10px; 
-    }
-
+    .card .card-about p,
     .card .balanse-card p {
-        left: 5px; 
-        margin-top: 30px; 
+        font-size: 0.8rem; /* Дальнейшее уменьшение текста */
     }
 
-    .date-card-maus p {
-        margin-left: 150px; 
+    .datecar {
+        top: 3px; /* Дальнейшее уменьшение отступа сверху */
     }
 
+    .date-card-maus p,
     .card-about .date-card-dm p {
-        margin-left: 160px; 
-        margin-top: 30px; 
+        font-size: 0.7rem; /* Дальнейшее уменьшение размера шрифта */
     }
 }
