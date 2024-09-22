@@ -174,6 +174,95 @@ body {
 @media(max-width: 768px) {
     .box {
         width: 100%;
+        max-width: 100%;
+        margin-top: 50px;
+        height: auto;
+        padding: 10px;
+    }
+
+    .card{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        margin-top: 20px;
+        right: 0;
+        position: relative;
+    }
+
+    .card img{
+        margin-left: 0;
+        width: 60px;
+        height: 60px;
+    }
+
+    .card .card-about{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0;
+    }
+
+    .card .card-about img{
+        position: relative;
+        left: 0;
+        margin-top: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    .card .card-about p {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 10px 0; 
+    }
+
+    .card .balanse-card p {
+        position: relative;
+        margin: 10px 0;
+        font-size: 0.9rem; 
+    }
+
+    .datecar {
+        position: relative;
+        margin-top: 10px; 
+    }
+
+    .date-card-maus p {
+        position: relative;
+        margin-left: 0; 
+        margin-top: 10px;
+        font-size: 0.9rem; 
+    }
+
+    .card-about .date-card-dm p {
+        position: relative;
+        margin-top: 5px;
+        margin-left: 0;
+        font-size: 0.8rem; 
+    }
+
+    .lega {
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    .lega img {
+        height: 30px; 
+        width: 30px;
+    }
+
+    .legaa {
+        font-size: 0.7rem; 
+    }
+
+    .lega p {
+        margin-right: 5px;
+        font-size: 0.9rem;
     }
 
     .boxgm {
