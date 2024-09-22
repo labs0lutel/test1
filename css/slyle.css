@@ -38,15 +38,15 @@ body {
     margin-top: 25px;
     height: 83px;
     display: flex;
-    justify-content: space-between; /* Размещает элементы по краям */
-    align-items: center; /* Выравнивает по вертикали */
+    justify-content: space-between; 
+    align-items: center; 
     margin-left: 5px;
     margin-right: 5px;
 }
 
 .user-info {
     display: flex;
-    align-items: center; /* Вертикальное выравнивание */
+    align-items: center; 
 }
 
 .boxgm .user-status {
@@ -60,7 +60,7 @@ body {
     width: 60px;
     border-radius: 50%;
     margin-right: 10px;
-    display: block; /* Убедитесь, что изображение отображается */
+    display: block; 
 }
 
 .user-name {
@@ -69,19 +69,22 @@ body {
 
 .lega {
     display: flex;
-    flex-direction: column; /* Располагает элементы в колонку */
-    align-items: center; /* Центрирует элементы по горизонтали */
+    flex-direction: column; 
+    align-items: center;
     cursor: pointer;
+    margin-right: -25px;
+    margin-top: -5px;
 }
 
 .lega img {
-    height: 40px; /* Установите желаемую высоту для изображения */
-    width: 40px; /* Установите желаемую ширину для изображения */
+    height: 40px;
+    width: 40px;
+    
 }
 
 .legaa {
-    font-size: 0.8rem; /* Уменьшенный размер шрифта для текста */
-    margin-top: 5px; /* Отступ сверху */
+    font-size: 0.8rem;
+    
 }
 
 .lega p{
@@ -102,6 +105,70 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
+
+.card{
+    background-color: #120F10;
+    border-radius: 20px;
+    padding: 20px;
+    width: 412px;
+    max-width: 430px;
+    height: 85px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    position: absolute;
+    right: 9.5px;
+    top: 0;
+    margin-top: 10px;
+}
+
+.card img {
+    margin-left: 100px;
+}
+
+.card .card-about img{
+    z-index: 1;
+    position: absolute;
+    left: -80px;
+    top: 0;
+    margin-top: 15px;
+}
+
+.card .card-about p{ 
+    position: absolute;
+    left: 60px;
+    top: 0;
+    margin-top: 20px;
+    font-family: "Inter";
+    font-weight: bold;
+}
+
+.card .balanse-card p{ 
+    position: absolute;
+    left: 20px;
+    top: 0;
+    margin-top: 50px;
+    font-family: "Inter";
+    font-weight: bold;
+}
+
+.datecar{
+    position: absolute;
+    margin-top: -2px;
+    top: 0;
+    left: 0;
+}
+.date-card-maus p {
+    position: absolute;
+    margin-left: 290px;
+}
+
+.card-about .date-card-dm p {
+    position: absolute;
+    margin-top: 51px;
+    margin-left: 296px;
 }
 
 @media(max-width: 768px) {
