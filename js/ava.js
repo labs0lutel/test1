@@ -1,17 +1,17 @@
-function loadUserData() {
-    const userName = localStorage.getItem('userName') || 'Гость';
-    const userPhoto = localStorage.getItem('userPhoto') || 'default-avatar.jpg'; // Пусть это будет изображение по умолчанию
+async function loadUserData() {
+    try {
+        const response = await fetch('https://labs0lutel.github.io/test1/'); // Ваш URL
+        const userData = await response.json();
 
-    // Установка имени пользователя
-    document.getElementById('userName').textContent = userName;
-
-    // Установка аватара пользователя
-    const userPhotoElement = document.getElementById('userPhoto');
-    userPhotoElement.src = userPhoto;
-    userPhotoElement.style.display = 'block';
+        if (userData) {
+            document.getElementById('userPhoto').src = userData.photo; // Путь к аватару
+            document.getElementById('userPhoto').style.display = 'block';
+            document.getElementById('userName').textContent = userData.name; // Имя пользователя
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки данных пользователя:', error);
+    }
 }
 
 // Вызов функции при загрузке страницы
-window.onload = function() {
-    loadUserData();
-};
+window.onload = loadUserData;
