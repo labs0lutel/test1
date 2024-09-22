@@ -22,6 +22,35 @@
         </div>
     </div>
 
-    <script src="./js/ava.js"></script>
+    <script>
+        async function loadUserData() {
+            const userId = Telegram.WebApp.initDataUnsafe.user.id; // Получаем ID пользователя из Web App
+
+            if (userId) {
+                try {
+                    const response = await fetch(`/user-data?user_id=${userId}`);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    const userData = await response.json();
+                    console.log('Полученные данные пользователя:', userData); // Для отладки
+
+                    if (userData && userData.photo && userData.name) {
+                        document.getElementById('userPhoto').src = userData.photo;
+                        document.getElementById('userPhoto').style.display = 'block';
+                        document.getElementById('userName').textContent = userData.name;
+                    } else {
+                        console.warn('Данные пользователя неполные:', userData);
+                    }
+                } catch (error) {
+                    console.error('Ошибка загрузки данных пользователя:', error);
+                }
+            }
+        }
+
+        // Вызов функции при загрузке страницы
+        window.onload = loadUserData;
+    </script>
 </body>
 </html>
