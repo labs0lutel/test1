@@ -186,6 +186,7 @@ body {
         padding: 15px; 
         position: relative; 
         margin-top: 10px; 
+        left: 5px;
     }
 
     .card img {
