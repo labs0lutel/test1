@@ -173,24 +173,28 @@ body {
 
 @media only screen and(max-width: 768px) {
     .box {
-        width: 100%;
-        margin-top: 50px; 
-        height: auto;
-        padding: 10px; 
+        width: 100%; 
+        margin-top: 50px;
+        height: auto; 
+        padding: 10px;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
     }
 
     .card {
-        width: calc(100% - 10px);
+        width: calc(100% - 20px); 
+        max-width: 430px;
         flex-direction: column; 
-        align-items: flex-start;
-        padding: 15px;
-        position: relative; 
-        margin-top: 10px; 
-        right: 5px;
+        align-items: flex-start; 
+        padding: 15px; 
+        position: relative;
+        margin-top: 10px;
+        transform: translateX(5px); 
     }
 
     .card img {
-        margin-left: 0;
+        margin-left: 0; 
         width: 50px; 
         height: 50px;
     }
@@ -247,8 +251,5 @@ body {
         font-size: 0.9rem;
         margin-right: 5px;
     }
-
-    .boxgm {
-        width: calc(100% - 10px);
-    }
+}
 }
