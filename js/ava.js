@@ -1,16 +1,17 @@
-const tg = window.Telegram.WebApp;
+function loadUserData() {
+    const userName = localStorage.getItem('userName') || 'Гость';
+    const userPhoto = localStorage.getItem('userPhoto') || 'default-avatar.jpg'; // Пусть это будет изображение по умолчанию
 
-if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const user = tg.initDataUnsafe.user;
+    // Установка имени пользователя
+    document.getElementById('userName').textContent = userName;
 
-    document.getElementById('userName').textContent = user.first_name;
-
-    if (user.photo_url) {
-        const userPhoto = document.getElementById('userPhoto');
-        userPhoto.src = user.photo_url;
-        userPhoto.style.display = 'block';
-    }
-} else {
-    document.getElementById('userName').textContent = "Гость";
-    console.log("Данные пользователя не найдены.");
+    // Установка аватара пользователя
+    const userPhotoElement = document.getElementById('userPhoto');
+    userPhotoElement.src = userPhoto;
+    userPhotoElement.style.display = 'block';
 }
+
+// Вызов функции при загрузке страницы
+window.onload = function() {
+    loadUserData();
+};
