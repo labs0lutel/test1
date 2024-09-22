@@ -10,7 +10,7 @@
     <div class="container">
         <div class="boxgm">
             <div class="user-info">
-                <img id="userPhoto" src="" alt="Аватар пользователя" style="display: none;">
+                <img id="userPhoto" src="" alt="Аватар пользователя">
                 <div>
                     <span class="user-name" id="userName">Имя пользователя</span>
                     <p class="user-status">Статус: Бомж</p>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="box">
-
+            <!-- Ваш контент -->
         </div>
     </div>
 
@@ -36,7 +36,6 @@
                     // Получаем первую фотографию пользователя
                     if (user.photo) {
                         userPhoto.src = user.photo.url; // Убедитесь, что URL правильный
-                        userPhoto.style.display = 'block';
                     }
 
                     // Устанавливаем ник пользователя
