@@ -10,11 +10,8 @@
     <div class="container">
         <div class="boxgm">
             <div class="user-info">
-                <img id="userPhoto" src="" alt="Аватар пользователя" style="display: none;">
-                <div>
-                    <span class="user-name" id="userName">Имя пользователя</span>
-                    <p class="user-status">Статус: Бомж</p>
-                </div>
+                <img id="avatar" src="" alt="User Avatar" />
+                <p id="username"></p>
             </div>
         </div>
         <div class="box">
@@ -23,34 +20,16 @@
     </div>
 
     <script>
-        async function loadUserData() {
-            const userId = Telegram.WebApp.initDataUnsafe.user.id; // Получаем ID пользователя из Web App
-
-            if (userId) {
-                try {
-                    const response = await fetch(`/user-data?user_id=${userId}`);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-
-                    const userData = await response.json();
-                    console.log('Полученные данные пользователя:', userData); // Для отладки
-
-                    if (userData && userData.photo && userData.name) {
-                        document.getElementById('userPhoto').src = userData.photo;
-                        document.getElementById('userPhoto').style.display = 'block';
-                        document.getElementById('userName').textContent = userData.name;
-                    } else {
-                        console.warn('Данные пользователя неполные:', userData);
-                    }
-                } catch (error) {
-                    console.error('Ошибка загрузки данных пользователя:', error);
-                }
+        if (window.Telegram.WebApp) {
+            // Получаем информацию о пользователе
+            const user = Telegram.WebApp.initDataUnsafe.user;
+            
+            // Выводим имя и аватарку
+            if (user) {
+                document.getElementById('username').innerText = user.first_name + ' ' + (user.last_name || '');
+                document.getElementById('avatar').src = user.photo_url || 'default-avatar.png'; // Используйте стандартное изображение, если аватар отсутствует
             }
         }
-
-        // Вызов функции при загрузке страницы
-        window.onload = loadUserData;
     </script>
 </body>
 </html>
