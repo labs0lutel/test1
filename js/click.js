@@ -21,7 +21,9 @@ function saveData() {
     localStorage.setItem('upgradeCount', upgradeCount);
 }
 
+
 function handleClick() {
+    console.log("Кнопка нажата!"); 
     balance += pointsPerClick;
     updateBalance();
 
@@ -34,18 +36,17 @@ function handleClick() {
     saveData(); 
 }
 
-
 circle.addEventListener('touchstart', function(event) {
     event.preventDefault();
     circle.classList.add('active'); 
-    handleClick(); 
+    handleClick();
 });
+
 
 circle.addEventListener('touchend', function() {
     circle.classList.remove('active'); 
 });
 
 circle.addEventListener('click', handleClick); 
-
 
 updateBalance();
