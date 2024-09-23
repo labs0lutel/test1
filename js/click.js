@@ -25,7 +25,6 @@ function updateProfitClick() {
 function updateEnergy() {
     energyElement.textContent = `${energy}/1000`;
     localStorage.setItem('energy', energy); 
-    localStorage.setItem('lastEnergyUpdate', Date.now()); 
 }
 
 function restoreEnergy() {
@@ -36,6 +35,7 @@ function restoreEnergy() {
     if (energy < maxEnergy) {
         energy = Math.min(maxEnergy, energy + energyRecovered); 
         lastEnergyUpdate = now - (timePassed % energyRecoveryRate); 
+        localStorage.setItem('lastEnergyUpdate', lastEnergyUpdate); 
         updateEnergy();
     }
 }
@@ -80,12 +80,8 @@ nextStatusElement.addEventListener('click', function() {
 });
 
 setInterval(() => {
-    if (energy < maxEnergy) {
-        energy++; 
-        updateEnergy(); 
-    }
-}, energyRecoveryRate);
-
+    restoreEnergy(); 
+}, 1000); 
 
 window.addEventListener('load', () => {
     balance = parseInt(localStorage.getItem('balance')) || 0;
