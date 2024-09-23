@@ -1,47 +1,28 @@
 const circle = document.getElementById('circle');
-const balanceElement = document.getElementById('balance');
-const profitClickElement = document.getElementById('profitClick');
-const nextStatusElement = document.getElementById('nextStatus');
-const profitHourElement = document.getElementById('profitHour');
+        const balanceElement = document.getElementById('balance');
 
-let balance = parseInt(localStorage.getItem('balance')) || 0;
-let pointsPerClick = 1;
-let multiplierThreshold = 100000;
-let upgradeCount = parseInt(localStorage.getItem('upgradeCount')) || 0;
-const maxUpgrades = 10;
+        let balance = parseInt(localStorage.getItem('balance')) || 0;
+        let pointsPerClick = 1;
 
-function updateBalance() {
-    balanceElement.textContent = `Баланс: ${balance} Coins`;
-    profitClickElement.innerHTML = `Прибыль за клик <br>+${pointsPerClick}`;
-    nextStatusElement.textContent = `Следующий статус ${multiplierThreshold}`;
-}
+        function updateBalance() {
+            balanceElement.textContent = `Баланс: ${balance} Coins`;
+        }
 
-function saveData() {
-    localStorage.setItem('balance', balance);
-    localStorage.setItem('upgradeCount', upgradeCount);
-}
+        // Общий обработчик для касаний и кликов
+        function handleClick() {
+            balance += pointsPerClick;
+            updateBalance();
+            console.log("Баланс обновлен:", balance); // Отладочное сообщение
+        }
 
-function handleClick() {
-    balance += pointsPerClick;
-    updateBalance();
+        // Обработчик события touchend (для мобильных)
+        circle.addEventListener('touchend', function(event) {
+            event.preventDefault(); // Предотвращает стандартное поведение
+            handleClick();
+        });
 
-    if (balance >= multiplierThreshold && upgradeCount < maxUpgrades) {
-        pointsPerClick *= 2; 
-        multiplierThreshold *= 2; 
-        upgradeCount++; 
-        updateBalance(); 
-    }
-    saveData(); 
-}
+        // Обработчик события click (для десктопа)
+        circle.addEventListener('click', handleClick);
 
-circle.addEventListener('touchstart', function(event) {
-    event.preventDefault(); 
-    circle.classList.add('active'); 
-    handleClick(); 
-});
-
-circle.addEventListener('touchend', function() {
-    circle.classList.remove('active'); 
-});
-
-updateBalance();
+        // Инициализация
+        updateBalance();
