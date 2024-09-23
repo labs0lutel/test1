@@ -2,17 +2,20 @@ const circle = document.getElementById('circle');
 const balanceElement = document.getElementById('balance');
 const profitClickElement = document.getElementById('profitClick');
 const nextStatusElement = document.getElementById('nextStatus');
-const energyElement = document.querySelector('.energia'); // Получаем элемент энергии
+const energyElement = document.querySelector('.energia');
 
 let balance = parseInt(localStorage.getItem('balance')) || 0;
 let pointsPerClick = 1;
 let upgradeCount = 0; 
 const initialNextStatusValue = 100000; 
-let energy = 1000; // Начальное значение энергии
-const maxEnergy = 1000; // Максимальное значение энергии
+let energy = parseInt(localStorage.getItem('energy')) || 1000; 
+const maxEnergy = 1000; 
+const energyRecoveryRate = 39874; 
+let lastEnergyUpdate = parseInt(localStorage.getItem('lastEnergyUpdate')) || Date.now();
 
 function updateBalance() {
     balanceElement.textContent = `Баланс: ${balance} Coins`;
+    localStorage.setItem('balance', balance); 
 }
 
 function updateProfitClick() {
@@ -20,15 +23,29 @@ function updateProfitClick() {
 }
 
 function updateEnergy() {
-    energyElement.textContent = `${energy}/1000`; // Обновляем текст с энергией
+    energyElement.textContent = `${energy}/1000`;
+    localStorage.setItem('energy', energy); 
+    localStorage.setItem('lastEnergyUpdate', Date.now()); 
+}
+
+function restoreEnergy() {
+    const now = Date.now();
+    const timePassed = now - lastEnergyUpdate; 
+    const energyRecovered = Math.floor(timePassed / energyRecoveryRate); 
+
+    if (energy < maxEnergy) {
+        energy = Math.min(maxEnergy, energy + energyRecovered); 
+        lastEnergyUpdate = now - (timePassed % energyRecoveryRate); 
+        updateEnergy();
+    }
 }
 
 function handleClick() {
-    if (energy > 0) { // Проверяем, есть ли энергия
+    if (energy > 0) { 
         balance += pointsPerClick;
-        energy--; // Уменьшаем энергию на 1
+        energy--; 
         updateBalance();
-        updateEnergy(); // Обновляем элемент энергии
+        updateEnergy(); 
         console.log("Баланс обновлен:", balance);
     } else {
         console.log("Недостаточно энергии!");
@@ -62,10 +79,19 @@ nextStatusElement.addEventListener('click', function() {
     }
 });
 
-// Восстановление энергии
 setInterval(() => {
     if (energy < maxEnergy) {
-        energy++; // Увеличиваем энергию на 1
-        updateEnergy(); // Обновляем элемент энергии
+        energy++; 
+        updateEnergy(); 
     }
-}, 39874); // 0.365 секунд
+}, energyRecoveryRate);
+
+
+window.addEventListener('load', () => {
+    balance = parseInt(localStorage.getItem('balance')) || 0;
+    energy = parseInt(localStorage.getItem('energy')) || 1000;
+    lastEnergyUpdate = parseInt(localStorage.getItem('lastEnergyUpdate')) || Date.now();
+
+    updateBalance();
+    restoreEnergy(); 
+});
