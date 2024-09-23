@@ -194,6 +194,8 @@ body {
 
 .box-pribl, .box-statusnext, .box-priblchas p{
     font-size: 13px;
+    font-family: "Inter";
+    font-weight: 700;
 }
 
 .circle {
@@ -224,6 +226,19 @@ body {
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
+}
+
+.energi{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    margin-right: 200px;
+    font-family: "Inter";
+    font-weight: 700;
+}
+
+.energi img{
+    margin-right: 15px;
 }
 
 @media only screen and(max-width: 768px) {
