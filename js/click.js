@@ -10,7 +10,7 @@ let upgradeCount = 0;
 const initialNextStatusValue = 100000; 
 let energy = parseInt(localStorage.getItem('energy')) || 1000; 
 const maxEnergy = 1000; 
-const energyRecoveryRate = 39874; 
+const energyRecoveryRate = 21547; 
 let lastEnergyUpdate = parseInt(localStorage.getItem('lastEnergyUpdate')) || Date.now();
 
 function updateBalance() {
@@ -32,7 +32,7 @@ function restoreEnergy() {
     const timePassed = now - lastEnergyUpdate; 
     const energyRecovered = Math.floor(timePassed / energyRecoveryRate); 
 
-    if (energy < maxEnergy) {
+    if (energy < maxEnergy && energyRecovered > 0) {
         energy = Math.min(maxEnergy, energy + energyRecovered); 
         lastEnergyUpdate = now - (timePassed % energyRecoveryRate); 
         localStorage.setItem('lastEnergyUpdate', lastEnergyUpdate); 
@@ -79,7 +79,6 @@ nextStatusElement.addEventListener('click', function() {
     }
 });
 
-
 window.addEventListener('load', () => {
     balance = parseInt(localStorage.getItem('balance')) || 0;
     energy = parseInt(localStorage.getItem('energy')) || 1000;
@@ -91,16 +90,5 @@ window.addEventListener('load', () => {
 
 
 setInterval(() => {
-    const now = Date.now();
-    const timePassed = now - lastEnergyUpdate;
-    
-    
-    if (timePassed >= energyRecoveryRate) {
-        restoreEnergy();
-    }
-    
-    
-    if (energy < maxEnergy) {
-        restoreEnergy();
-    }
-}, 1000); 
+    restoreEnergy();
+}, 1000);
