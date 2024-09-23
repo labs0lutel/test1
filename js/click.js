@@ -79,10 +79,6 @@ nextStatusElement.addEventListener('click', function() {
     }
 });
 
-setInterval(() => {
-    restoreEnergy(); 
-}, 1000); 
-
 window.addEventListener('load', () => {
     balance = parseInt(localStorage.getItem('balance')) || 0;
     energy = parseInt(localStorage.getItem('energy')) || 1000;
@@ -91,3 +87,7 @@ window.addEventListener('load', () => {
     updateBalance();
     restoreEnergy(); 
 });
+
+setInterval(() => {
+    restoreEnergy(); 
+}, 1000); 
