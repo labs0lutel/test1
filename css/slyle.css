@@ -252,11 +252,18 @@ body {
     }
 
     .box-pribl, .box-statusnext, .box-priblchas {
-        height: 6vh; /* Немного уменьшим высоту на планшетах */
+        height: 6vh; 
     }
     
     .box-pribl, .box-statusnext, .box-priblchas p {
-        font-size: 1.2rem; /* Текст на планшетах чуть меньше */
+        font-size: 1.2rem; 
+    }
+}
+
+@media (max-width: 600px) {
+    .circle {
+        width: 70vw; 
+        height: 70vw; 
     }
 }
 
