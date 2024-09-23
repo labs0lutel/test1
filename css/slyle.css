@@ -158,64 +158,143 @@ body {
 
 .datecar {
     position: absolute;
-    top: 16px; /* Отступ сверху */
-    left: 10px; /* Отступ слева */
-    display: flex; /* Используем flex для управления расположением */
-    justify-content: flex-start; /* Выравниваем текст влево */
-    align-items: center; /* Выравниваем по вертикали */
+    top: 16px; 
+    left: 10px; 
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
 }
 
 .date-card-maus p,
 .card-about .date-card-dm p {
-    font-size: 0.9rem; /* Устанавливаем размер шрифта */
-    margin: 0 255px; /* Добавляем отступы между текстами */
+    font-size: 0.9rem; 
+    margin: 0 255px; 
+}
+
+.info-games {
+    margin-top: 5px; 
+}
+
+.info-box {
+    padding: 9px; 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+.box-pribl, .box-statusnext, .box-priblchas {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px; 
+    padding: 5px 33px;
+    text-align: center;
+    width: 100%; 
+    height: 55px;
+}
+
+.box-pribl, .box-statusnext, .box-priblchas p{
+    font-size: 13px;
+}
+
+.circle {
+    width: 300px; 
+    height: 300px; 
+    border-radius: 50%; 
+    border: 10px solid rgb(0, 92, 86); 
+    background: linear-gradient(to bottom, #0B534F, #242424); 
+    position: relative; 
+    overflow: hidden; 
+    display: inline-block;
+    transition: transform 0.1s ease; 
+    cursor: pointer;
+    margin-top: 100px;
+}
+
+.circle:active {
+    transform: scale(0.95); 
+}
+
+.circle img {
+    width: 80%; 
+    height: auto; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
 @media only screen and(max-width: 768px) {
     .card {
-        height: 75px; /* Уменьшаем высоту карточки */
+        height: 75px;
+    }
+
+    .card .card-map img{
+        width: 40px;
+        margin-left: 20%;
     }
 
     .card .card-about img {
-        width: 40px; /* Уменьшаем размер изображения */
+        width: 40px; 
+        
     }
 
     .card .card-about p,
     .card .balanse-card p {
-        font-size: 0.9rem; /* Уменьшаем размер текста */
+        font-size: 0.9rem; 
     }
 
     .datecar {
-        top: 5px; /* Уменьшаем отступ сверху */
+        top: 5px; 
     }
 
     .date-card-maus p,
     .card-about .date-card-dm p {
-        font-size: 0.8rem; /* Уменьшаем размер шрифта */
+        font-size: 0.8rem; 
+    }
+
+    .box-pribl, .box-statusnext, .box-priblchas {
+        height: 6vh; /* Немного уменьшим высоту на планшетах */
+    }
+    
+    .box-pribl, .box-statusnext, .box-priblchas p {
+        font-size: 1.2rem; /* Текст на планшетах чуть меньше */
     }
 }
 
 
 @media only screen and(max-width: 480px) {
     .card {
-        height: 65px; /* Дальнейшее уменьшение высоты карточки */
+        height: 65px; 
+    }
+
+    .card .card-map img{
+        width: 40px;
+        margin-left: 5%;
     }
 
     .card .card-about img {
-        width: 30px; /* Дальнейшее уменьшение размера изображения */
+        width: 30px; 
     }
 
     .card .card-about p,
     .card .balanse-card p {
-        font-size: 0.8rem; /* Дальнейшее уменьшение текста */
+        font-size: 0.8rem; 
     }
 
     .datecar {
-        top: 3px; /* Дальнейшее уменьшение отступа сверху */
+        top: 3px; 
     }
 
     .date-card-maus p,
     .card-about .date-card-dm p {
-        font-size: 0.7rem; /* Дальнейшее уменьшение размера шрифта */
+        font-size: 0.7rem; 
+    }
+
+    .box-pribl, .box-statusnext, .box-priblchas {
+        padding: 1vh 3vw; /* Уменьшим внутренние отступы на мобильных устройствах */
+        height: auto; /* Делаем высоту автоматической */
+    }
+
+    .box-pribl, .box-statusnext, .box-priblchas p {
+        font-size: 1rem; /* Уменьшим текст для мобильных */
     }
 }

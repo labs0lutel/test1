@@ -32,7 +32,7 @@
                     <img src="./img/MasterCard.png" alt="">
                     <p class="nubmer-card">.... 3052</p>
                     <div class="balanse-card">
-                        <p class="balanse-card">Баланс: хххх Coins</p>
+                        <p class="balanse-card" id="balance">Баланс: 0 Coins</p>
                     </div>
                     <div class="datecar">
                         <div class="date-card-maus">
@@ -48,9 +48,27 @@
                     </div>
                 </div>
             </div>
+            <div class="info-games">
+                <div class="info-box">
+                    <div class="box-pribl">
+                        <p class="priblclick" id="profitClick">Прибыль за клик <br>+1</p>
+                    </div>
+                    <div class="box-statusnext">
+                        <p class="nexststasus" id="nextStatus">Следующий статус 100.000</p>
+                    </div>
+                    <div class="box-priblchas">
+                        <p class="priblchas" id="profitHour">Прибыль в час <br>+0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="circle">
+                <img src="./img/image 3.png" id="circle" alt="Картинка внутри круга">
+            </div>
         </div>
     </div>
 
+
+    <script src="./js/click.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         const tg = window.Telegram.WebApp;
