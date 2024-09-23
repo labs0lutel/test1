@@ -21,21 +21,10 @@ function saveData() {
     localStorage.setItem('upgradeCount', upgradeCount);
 }
 
-
-circle.addEventListener('touchstart', function(event) {
-    event.preventDefault(); 
-    circle.classList.add('active'); 
-});
-
-circle.addEventListener('touchend', function() {
-    circle.classList.remove('active'); 
-});
-
-
-circle.addEventListener('click', () => {
+function handleClick() {
     balance += pointsPerClick;
     updateBalance();
-    
+
     if (balance >= multiplierThreshold && upgradeCount < maxUpgrades) {
         pointsPerClick *= 2; 
         multiplierThreshold *= 2; 
@@ -43,7 +32,20 @@ circle.addEventListener('click', () => {
         updateBalance(); 
     }
     saveData(); 
+}
+
+
+circle.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+    circle.classList.add('active'); 
+    handleClick(); 
 });
+
+circle.addEventListener('touchend', function() {
+    circle.classList.remove('active'); 
+});
+
+circle.addEventListener('click', handleClick); 
 
 
 updateBalance();
