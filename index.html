@@ -10,20 +10,15 @@
     <div class="container">
         <div class="boxgm">
             <div class="user-info">
-                <img id="userPhoto" src="./img/ava.png" alt="Аватар пользователя">
+                <img id="userPhoto" src="" alt="Аватар пользователя" style="display: none;">
                 <div>
                     <span class="user-name" id="userName">Имя пользователя</span>
                     <p class="user-status">Статус: Бомж</p>
                 </div>
             </div>
-            <div class="lega">
-                <a href="">
-                    <img src="./img/Trophy.png" alt="lega">
-                    <p class="legaa">Лига</p>
-                </a>
-            </div>
         </div>
         <div class="box">
+<<<<<<< HEAD
             <div class="card">
                 <div class="card-map">
                     <img src="./img/image 2.png" alt="">
@@ -70,23 +65,34 @@
 
     <script src="./js/click.js"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-        const tg = window.Telegram.WebApp;
+=======
+            <!-- Ваш контент -->
+        </div>
+    </div>
 
-        if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-            const user = tg.initDataUnsafe.user;
-        
-            document.getElementById('userName').textContent = user.first_name;
-        
-            if (user.photo_url) {
-                const userPhoto = document.getElementById('userPhoto');
-                userPhoto.src = user.photo_url;
-                userPhoto.style.display = 'block'; 
+>>>>>>> a9804c626eae54a27352dffc9a2c15b740d20eb0
+    <script>
+        window.onload = async function() {
+            if (window.Telegram && Telegram.WebApp) {
+                const user = Telegram.WebApp.initDataUnsafe.user;
+                const userName = document.getElementById('userName');
+                userName.textContent = user.username || 'Имя пользователя';
+
+                if (user) {
+                    // Запрос к вашему серверу для получения фотографий
+                    const response = await fetch(`/getUserProfilePhotos?userId=${user.id}`);
+                    const data = await response.json();
+
+                    if (data.result && data.result.photos.length > 0) {
+                        const photo = data.result.photos[0][0]; // Первое фото
+                        const photoUrl = `https://api.telegram.org/file/bot${token}/${photo.file_path}`;
+                        const userPhoto = document.getElementById('userPhoto');
+                        userPhoto.src = photoUrl;
+                        userPhoto.style.display = 'block'; // Показать изображение
+                    }
+                }
             }
-        } else {
-        document.getElementById('userName').textContent = "Гость";
-        console.log("Данные пользователя не найдены.");
-        }
+        };
     </script>
 </body>
 </html>
