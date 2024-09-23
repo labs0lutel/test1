@@ -83,10 +83,11 @@
 
     document.getElementById('userName').textContent = user.first_name;
 
+    console.log(user);
+
     if (user.photo_url) {
         const userPhoto = document.getElementById('userPhoto');
         
-        // Проверяем доступность URL изображения
         fetch(user.photo_url)
             .then(response => {
                 if (response.ok) {
