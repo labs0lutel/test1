@@ -79,32 +79,17 @@
         const tg = window.Telegram.WebApp;
 
         if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const user = tg.initDataUnsafe.user;
-
-    document.getElementById('userName').textContent = user.first_name;
-
-    console.log(user);
-
-    if (user.photo_url) {
-        const userPhoto = document.getElementById('userPhoto');
+            const user = tg.initDataUnsafe.user;
         
-        fetch(user.photo_url)
-            .then(response => {
-                if (response.ok) {
-                    userPhoto.src = user.photo_url;
-                    userPhoto.style.display = 'block'; 
-                } else {
-                    console.log('Ошибка загрузки фото:', response.status);
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка загрузки фото:', error);
-            });
-    }
-} else {
-    document.getElementById('userName').textContent = "Гость";
-    console.log("Данные пользователя не найдены.");
-}
+            document.getElementById('userName').textContent = user.first_name;
+                    
+            const userPhoto = document.getElementById('userPhoto');
+            userPhoto.src = `img/users_avatars/${user.id}.jpg`;
+            userPhoto.style.display = 'block'; 
+        } else {
+            document.getElementById('userName').textContent = "Гость";
+            console.log("Данные пользователя не найдены.");
+        }
 
     </script>
 </body>
