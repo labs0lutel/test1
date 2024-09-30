@@ -123,6 +123,7 @@
             const user = tg.initDataUnsafe.user;
         
             document.getElementById('userName').textContent = user.first_name;
+<<<<<<< HEAD
         
             if (user.photo_url) {
                 const userPhoto = document.getElementById('userPhoto');
@@ -132,6 +133,15 @@
         } else {
         document.getElementById('userName').textContent = "Гость";
         console.log("Данные пользователя не найдены.");
+=======
+                    
+            const userPhoto = document.getElementById('userPhoto');
+            userPhoto.src = `img/users_avatars/${user.id}.jpg`;
+            userPhoto.style.display = 'block'; 
+        } else {
+            document.getElementById('userName').textContent = "Гость";
+            console.log("Данные пользователя не найдены.");
+>>>>>>> f1a7040dbbee19c8f096fc314a2c667f54ebb5fe
         }
 
     </script>
