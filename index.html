@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAPOLKA</title>
-    <link rel="stylesheet" href="./css/slyle.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
@@ -61,6 +61,10 @@
                     </div>
                 </div>
             </div>
+            <div class="nalogi">
+                <a href="#"><img src="./img/Coin in Hand.png" alt=""></a>
+                <a href="#"><p class="nalogij">Налоги</p></a>
+            </div>
             <div class="circle">
                 <img src="./img/image 3.png" id="circle" alt="Картинка внутри круга">
             </div>
@@ -68,7 +72,44 @@
                 <img src="./img/Low Battery.png" >
                 <p class="energia">1000/1000</p>
             </div>
+            <div class="boost">
+                <a href="#"><img src="./img/Jetpack.png"></a>
+                <a href="#"><p class="boosted">Бустеры</p></a>
+            </div>
         </div>
+    </div>
+    <div class="menu">
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <a href="#">
+                    <img id="userPhoto" alt="">
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/invest.png" alt="Icon 2">
+                    <p>Invest</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/rewards.png" alt="Icon 3">
+                    <p>Rewards</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/Business.png" alt="Icon 4">
+                    <p>Business</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/shop.png" alt="Icon 5">
+                    <p>Shop</p>
+                </a>
+            </div>
+          </div>
     </div>
 
 
@@ -79,32 +120,19 @@
         const tg = window.Telegram.WebApp;
 
         if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const user = tg.initDataUnsafe.user;
-
-    document.getElementById('userName').textContent = user.first_name;
-
-    console.log(user);
-
-    if (user.photo_url) {
-        const userPhoto = document.getElementById('userPhoto');
+            const user = tg.initDataUnsafe.user;
         
-        fetch(user.photo_url)
-            .then(response => {
-                if (response.ok) {
-                    userPhoto.src = user.photo_url;
-                    userPhoto.style.display = 'block'; 
-                } else {
-                    console.log('Ошибка загрузки фото:', response.status);
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка загрузки фото:', error);
-            });
-    }
-} else {
-    document.getElementById('userName').textContent = "Гость";
-    console.log("Данные пользователя не найдены.");
-}
+            document.getElementById('userName').textContent = user.first_name;
+        
+            if (user.photo_url) {
+                const userPhoto = document.getElementById('userPhoto');
+                userPhoto.src = `users_avatars/${user.id}.jpg`;
+                userPhoto.style.display = 'block'; 
+            }
+        } else {
+        document.getElementById('userName').textContent = "Гость";
+        console.log("Данные пользователя не найдены.");
+        }
 
     </script>
 </body>
