@@ -81,12 +81,12 @@
     <div class="menu">
         <div class="bottom-nav">
             <div class="nav-item">
-                <a href="#">
+                <a href="./index.html">
                     <img id="userPhoto" alt="">
                 </a>
             </div>
             <div class="nav-item">
-                <a href="#">
+                <a href="./invest.html">
                     <img src="./img/invest.png" alt="Icon 2">
                     <p>Invest</p>
                 </a>
@@ -119,30 +119,20 @@
     <script>
         const tg = window.Telegram.WebApp;
 
-        if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-            const user = tg.initDataUnsafe.user;
-        
-            document.getElementById('userName').textContent = user.first_name;
-<<<<<<< HEAD
-        
-            if (user.photo_url) {
-                const userPhoto = document.getElementById('userPhoto');
-                userPhoto.src = `users_avatars/${user.id}.jpg`;
-                userPhoto.style.display = 'block'; 
-            }
-        } else {
-        document.getElementById('userName').textContent = "Гость";
-        console.log("Данные пользователя не найдены.");
-=======
-                    
-            const userPhoto = document.getElementById('userPhoto');
-            userPhoto.src = `img/users_avatars/${user.id}.jpg`;
-            userPhoto.style.display = 'block'; 
-        } else {
-            document.getElementById('userName').textContent = "Гость";
-            console.log("Данные пользователя не найдены.");
->>>>>>> f1a7040dbbee19c8f096fc314a2c667f54ebb5fe
-        }
+if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+    const user = tg.initDataUnsafe.user;
+
+    document.getElementById('userName').textContent = user.first_name;
+
+    if (user.photo_url) {
+        const userPhoto = document.getElementById('userPhoto');
+        userPhoto.src = `users_avatars/${user.id}.jpg`;
+        userPhoto.style.display = 'block'; 
+    }
+} else {
+document.getElementById('userName').textContent = "Гость";
+console.log("Данные пользователя не найдены.");
+}
 
     </script>
 </body>

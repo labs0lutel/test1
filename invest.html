@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAPOLKA</title>
+    <link rel="stylesheet" href="./css/invest.css">
+</head>
+<body>
+    <div class="container">
+        <div class="boxgm">
+            <div class="user-info">
+                <img id="userPhoto" alt="Аватар пользователя">
+                <div>
+                    <span class="user-name" id="userName">Имя пользователя</span>
+                    <p class="user-status">Статус: Бомж</p>
+                </div>
+            </div>
+            <div class="lega">
+                <a href="">
+                    <img src="./img/Trophy.png" alt="lega">
+                    <p class="legaa">Лига</p>
+                </a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="info-games">
+                <div class="info-box">
+                    <div class="box-pribl">
+                        <p class="priblclick">Акции</p>
+                    </div>
+                    <div class="box-statusnext">
+                        <p class="nexststasus">Недвижемость</p>
+                    </div>
+                    <div class="box-priblchas">
+                        <p class="priblchas">Криптовалюта</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio">
+                <div class="portfolio-info">
+                    <h3>Мой портфель</h3>
+                    <p>Стоимость портфеля:</p>
+                    <p id="portfolio-value">$ 0</p>
+                    <p id="portfolio-change" class="portfolio-change red">↓ $ 0 (0%)</p>
+                </div>
+                <div class="portfolio-assets">
+                    <ul id="assets-list">
+                        <!-- Динамически добавляемые акции -->
+                    </ul>
+                </div>
+                <div class="portfolio-chart">
+                    <img src="./img/Investment.png" alt="Pie Chart" />
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-map">
+                    <img src="./img/image 2.png" alt="">
+                </div>
+                <div class="card-about">
+                    <img src="./img/MasterCard.png" alt="">
+                    <p class="nubmer-card">.... 3052</p>
+                    <div class="balanse-card">
+                        <p class="balanse-card" id="balance">Баланс: 0 Coins</p>
+                    </div>
+                    <div class="datecar">
+                        <div class="date-card-maus">
+                            <p class="date-maus">
+                                D/M
+                            </p>
+                        </div>
+                        <div class="date-card-dm">
+                            <p class="date-dm">
+                                07/30
+                            </p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="menu-item" onclick="goToPage('stock-market')">
+                <div class="menu-icon">
+                    <img src="./img/Bank.png" alt="Stock Market" />
+                </div>
+                <div class="menu-text">
+                    <p>Фондовый рынок</p>
+                </div>
+                <div class="menu-arrow">
+                    <span>→</span>
+                </div>
+            </div>
+    
+            <div class="menu-item" onclick="goToPage('my-stocks')">
+                <div class="menu-icon">
+                    <img src="./img/Slice.png" alt="My Stocks" />
+                </div>
+                <div class="menu-text">
+                    <p>Мои акции</p>
+                </div>
+                <div class="menu-arrow">
+                    <span>→</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="menu">
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <a href="./index.html">
+                    <img id="userPhoto" alt="">
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="./invest.html">
+                    <img src="./img/invest.png" alt="Icon 2">
+                    <p>Invest</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/rewards.png" alt="Icon 3">
+                    <p>Rewards</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/Business.png" alt="Icon 4">
+                    <p>Business</p>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="#">
+                    <img src="./img/shop.png" alt="Icon 5">
+                    <p>Shop</p>
+                </a>
+            </div>
+          </div>
+    </div>
+
+
+
+    <script src="./js/click.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./js/aktii.js"></script>
+    <script>
+        const tg = window.Telegram.WebApp;
+
+        if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+            const user = tg.initDataUnsafe.user;
+        
+            document.getElementById('userName').textContent = user.first_name;
+        
+            if (user.photo_url) {
+                const userPhoto = document.getElementById('userPhoto');
+                userPhoto.src = `users_avatars/${user.id}.jpg`;
+                userPhoto.style.display = 'block'; 
+            }
+        } else {
+        document.getElementById('userName').textContent = "Гость";
+        console.log("Данные пользователя не найдены.");
+        }
+
+        function goToPage(page) {
+    if (page === 'stock-market') {
+        window.location.href = '/stock-market.html'; // Переход на страницу "Фондовый рынок"
+    } else if (page === 'my-stocks') {
+        window.location.href = '/my-stocks.html'; // Переход на страницу "Мои акции"
+    }
+}
+
+
+    </script>
+</body>
+</html>
